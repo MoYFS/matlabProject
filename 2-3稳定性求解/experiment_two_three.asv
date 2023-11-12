@@ -20,6 +20,5 @@ subplot(4,1,3);stem(f2);title('f2');
 subplot(4,1,4);stem(xsin);title('xsin');
 figure;
 y1n=filter(B,A,un);%谐振器对u(n)的响应y1(n)
-y2n=filter(B,A,xsin);%谐振器对xsin(n)的响应y2(n)
-subplot(2,1,1);stem(y1n);title('(h)谐振器对u(n)的响应y1(n)');
-subplot(2,1,2);stem(y2n);title('(i)谐振器对xsin(n)的响应y2(n)');
+y2n=filter(B,A,xsin);%谐振器对xsin的响应y1(n)
+
