@@ -1,0 +1,10 @@
+clc;close all;
+I = imread('i_peppers_gray.bmp');
+figure(1);imshow(real(I));
+I=I(:,:,3);fftI=fft2(I);
+sfftI=fftshift(fftI);
+RRfdp1=real(sfftI);IIfdp1=imag(sfftI);
+a=sqrt(RRfdp1.^2+IIfdp1.^2);
+a=(a-min(min(a)))/(max(max(a))-min(min(a)))*225;
+figure(2);imshow(real(a));b=angle(fftI);
+figure(3);imshow(real(b));
