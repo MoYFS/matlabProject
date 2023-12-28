@@ -1,6 +1,6 @@
 clc;
 close all;
-Image=imread(".\lena.jpg");
+Image=imread("lena.jpg");
 r=Image(:,:,1);
 g=Image(:,:,2);
 b=Image(:,:,3);
