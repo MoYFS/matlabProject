@@ -4,11 +4,11 @@ subplot(1,4,1);
 imshow(img)
 title("原图")
 a=size(img)
-img1(1:a(1),1:a(2),:)=img(1:a(1),a(2):-1:1,:);
+img1(:,1:a(2),:)=img(:,a(2):-1:1,:);
 subplot(1,4,2);
 imshow(img1)
 title("lr")
-img2(1:a(1),1:a(2),:)=img(a(1):-1:1,1:a(2),:);
+img2(1:a(1),:,:)=img(a(1):-1:1,:,:);
 subplot(1,4,3);
 imshow(img2)
 title("up")
