@@ -1,0 +1,14 @@
+Back=imread('bird.jpg');
+Templet=imread('birdtemplet.bmp');
+result1=bitcmp(Back);
+result2=bitand(Templet,Back);
+result3=bitor(Templet,Back);
+result4=bitxor(Templet,Back);
+imwrite(result1,'qiufan.jpg');
+imwrite(result2,'xiangyu.jpg');
+imwrite(result3,'xianghuo.jpg');
+imwrite(result4,'yihuo.jpg');
+subplot(221),imshow(result1),title('图像求反');
+subplot(222),imshow(result2),title('图像相与');
+subplot(223),imshow(result3),title('图像相或');
+subplot(224),imshow(result4),title('图像异或');
