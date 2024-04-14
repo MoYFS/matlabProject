@@ -1,0 +1,15 @@
+close all;clc;clear;
+image=imread("test.png");
+imageDFT=fftshift(fft2(image));
+[h,w,z]=size(imageDFT);
+subplot(2,3,1);imshow(image);
+subplot(2,3,4);imshow(imageDFT);
+imageDFT1=imageDFT;
+imageDFT1(h/2-h/4:h/2+h/4,w/2-w/4:w/2+w/4,:)=0;
+subplot(2,3,2);imshow(imageDFT1);
+subplot(2,3,5);imshow(uint8(ifft2(ifftshift(imageDFT1))));
+imageDFT2=imageDFT;
+imageDFT2(1:h/4,:,:)=0;imageDFT2(h*3/4:h,:,:)=0;
+imageDFT2(:,1:w/4,:)=0;imageDFT2(:,w*3/4:w,:)=0;
+subplot(2,3,3);imshow(imageDFT2);
+subplot(2,3,6);imshow(uint8(ifft2(ifftshift(imageDFT2))));
