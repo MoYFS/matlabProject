@@ -1,0 +1,12 @@
+close all;clc;clear;
+image=rgb2gray(imread("test1.png"));
+subplot(2,2,1);imshow(image);
+imageDFT=fftshift(fft2(image));
+subplot(2,2,3);imshow(imageDFT);
+[h,w]=size(imageDFT);
+imageLDFT=imageDFT;
+imageLDFT(1:h*0.2,:)=0;imageLDFT(h*0.8:h+1,:)=0;
+imageLDFT(:,1:w*0.2)=0;imageLDFT(:,w*0.8:w+1)=0;
+image2=uint8(abs(ifft2(ifftshift(imageLDFT))));
+subplot(2,2,2);imshow(image2);
+subplot(2,2,4);imshow(imageLDFT);

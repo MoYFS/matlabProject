@@ -1,0 +1,11 @@
+clc;close all;clear;
+Image=im2double(rgb2gray(imread('test.png')));
+subplot(2,2,1);imshow(Image);
+BW= edge(Image,'sobel');
+subplot(2,2,2);imshow(BW);
+H1=[-1 -2 -1;0 0 0;1 2 1];H2=[-1 0 1;-2 0 2;-1 0 1];
+R1=imfilter(Image,H1);R2=imfilter(Image,H2);
+edgeImage=abs(R1)+abs(R2);
+subplot(2,2,3);imshow(edgeImage);
+sharpImage=Image+edgeImage;
+subplot(2,2,4);imshow(sharpImage);
